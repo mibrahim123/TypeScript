@@ -1,7 +1,7 @@
 interface a
 {
     index: string;
-    yellow(): number;
+    yellow(): number;  
 }
 
 
@@ -9,6 +9,9 @@ class A implements a{
     index = "a";
     yellow() {
         return 1;
+    }
+    compose(){
+        return "abc";
     }
 }
 
@@ -23,11 +26,19 @@ interface Counter {
 }
 
 function getCounter(): Counter {
-    let counter = (function (start: number) { }) as Counter;
-    counter.interval = 123;
-    counter.hoool = 5;
-    counter.reset = function () { };
+    // let counter = (function (start: number) { }) as Counter;
+    // counter.interval = 123;
+    // counter.hoool = 5;
+    // counter.reset = function () { };
+    // return counter;
+
+
+    // Both Are Same 
     
+    let counter={} as Counter;
+    counter.interval=123;
+    counter.prototype=(start:number)=>{};
+    counter.reset=()=>{};
     return counter;
 }
 
