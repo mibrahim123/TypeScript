@@ -34,10 +34,11 @@ function getCounter(): Counter {
 
 
     // Both Are Same 
-    
+
     let counter={} as Counter;
     counter.interval=123;
     counter.prototype=(start:number)=>{};
+    
     counter.reset=()=>{};
     return counter;
 }
@@ -47,14 +48,17 @@ let c = getCounter();
 
 interface SearchFunc {
     (source: string, subString: string): boolean;
+     abc:any;
 }
 
-let mySearch: SearchFunc;
+let mySearch={} as SearchFunc;
 
-mySearch = function(source: string, subString: string) {
+mySearch.prototype = function(source: string, subString: string) {
     let result = source.search(subString);
     return true;
 }
+
+mySearch.abc="5";
 
 
 interface abc{
@@ -63,12 +67,14 @@ interface abc{
 }
 
 
-let a: abc[];
+let a: abc[]=[];
 
 a = [{
     a: 5,
     b: 'yellow',
-}]
+}];
+
+
 
 interface ClockConstructor {
     new (hour: number, minute: number): ClockInterface;
